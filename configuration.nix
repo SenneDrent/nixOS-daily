@@ -5,6 +5,8 @@
 { config, pkgs, ... }:
 
 {
+  environment.etc.nixos.source = "/home/senne/Config/nixOS-daily/";
+  
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -104,7 +106,8 @@
 	    vcsodeWithExtension = vscode-with-extensions.override {
 	      # When the extension is already available in the default extensions set.
 	      vscodeExtensions = with vscode-extensions; [
-		bbenoist.nix
+		      bbenoist.nix
+          platformio.platformio-vscode-ide
 	      ];
 	    };
 	  in
