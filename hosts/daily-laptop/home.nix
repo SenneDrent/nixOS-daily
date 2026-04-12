@@ -4,8 +4,18 @@
     dconf = {
         enable = true;
         #enable right clicking with right side of touchpad
-        settings."org/gnome/desktop/peripherals/touchpad" = {
-            click-method = "areas";
+        settings = {
+            "org/gnome/desktop/peripherals/touchpad" = {
+                click-method = "areas";
+            };
+
+            "org/gnome/shell" = {
+                favorite-apps = [
+                    "zen.desktop"
+                    "org.gnome.Nautilus.desktop"
+                    "org.gnome.Console.desktop"
+                ];
+            };
         };
         
     };
@@ -24,12 +34,12 @@
     xdg.mimeApps = {
         enable = true;  
         defaultApplications = {
-            "text/html" = "zen-browser.desktop";
-            "x-scheme-handler/http" = "zen-browser.desktop";
-            "x-scheme-handler/https" = "zen-browser.desktop";
-            "x-scheme-handler/about" = "zen-browser.desktop";
-            "x-scheme-handler/unknown" = "zen-browser.desktop";
-            "application/pdf" = "zen-browser.desktop";
+            "text/html" = "zen.desktop";
+            "x-scheme-handler/http" = "zen.desktop";
+            "x-scheme-handler/https" = "zen.desktop";
+            "x-scheme-handler/about" = "zen.desktop";
+            "x-scheme-handler/unknown" = "zen.desktop";
+            "application/pdf" = "zen.desktop";
         };
     };
     
