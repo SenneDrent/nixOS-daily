@@ -1,11 +1,12 @@
-## Setting up the config from the git repository
-1. clone the repo into the desired folder
-2. symlink this folder to /etc/nixos with: 
+## nixos config
+
+This is my current nixos config, it is still a work in progress.
+
+## using the config
+
+1. Clone repo into a desired folder
+2. Change the ```hardware-configuration.nix``` file if needed
+3. run the following command inside the root folder of the repository:
 ```
-    environment.etc.nixos.source = "[YOUR_PATH]/nixOS-daily/";
-```
-3. build once in this directory:
-```
- $ sudo nixos-rebuild switch -I nixos-config=[YOUR_PATH]/nixOS-daily/configuration.nix
-```
-4. enjoy!
+    $ sudo nixos-rebuild switch --flake . 
+``` 
