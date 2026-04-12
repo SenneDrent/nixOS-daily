@@ -5,13 +5,11 @@
 { config, pkgs, ... }:
 
 {
-  environment.etc.nixos.source = "/home/senne/Config/nixOS-daily/";
-  
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./flatpak.nix
-      ./home-manager.nix
     ];
 
   # Bootloader.
@@ -93,37 +91,17 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-  # Enable flatpak (for Apps without a nixpkg)
-  services.flatpak.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; 
-	  let
-	    vcsodeWithExtension = vscode-with-extensions.override {
-	      # When the extension is already available in the default extensions set.
-	      vscodeExtensions = with vscode-extensions; [
-		      bbenoist.nix
-          platformio.platformio-vscode-ide
-	      ];
-	    };
-	  in
-	  [
-	  	vcsodeWithExtension
-	  	spotify
-	  ];
-  
-   xdg.mime.enable = true;
-   xdg.mime.defaultApplications = {
-	    "text/html" = "app.zen_browser.zen.desktop";
-	    "x-scheme-handler/http" = "app.zen_browser.zen.desktop";
-	    "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
-	    "x-scheme-handler/about" = "app.zen_browser.zen.desktop";
-	    "x-scheme-handler/unknown" = "app.zen_browser.zen.desktop";
-    };
+  environment.systemPackages = with pkgs; [
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
+  	git
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -150,6 +128,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 }
