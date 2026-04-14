@@ -16,6 +16,12 @@
                     "org.gnome.Console.desktop"
                 ];
             };
+            
+            "org/gnome/desktop/background" = {
+                color-shading-type = "solid";
+                picture-uri = "file://" + ./../../static/doodle_bg.png;
+                picture-uri-dark = "file://" + ./../../static/doodle_bg.png;
+            };
         };
         
     };
