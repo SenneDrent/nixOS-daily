@@ -103,6 +103,15 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Disable most gnome default apps
+  services.gnome.core-utilities.enable = false;
+
+  # add the ones i want to keep
+  environment.systemPackages = with pkgs; [
+    nautilus
+    gnome-console
+  ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

@@ -12,8 +12,10 @@
             "org/gnome/shell" = {
                 favorite-apps = [
                     "zen.desktop"
+                    "spotify.desktop"
                     "org.gnome.Nautilus.desktop"
                     "org.gnome.Console.desktop"
+                    "code.desktop"
                 ];
             };
             
